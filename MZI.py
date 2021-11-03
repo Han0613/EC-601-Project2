@@ -15,18 +15,13 @@ gc_output = siepic.GratingCoupler()
 # connect pins directly:
 y_splitter["pin1"].connect(gc_input["pin1"])
 
-# or connect components with components:
-# (when using components to make connections, their first unconnected pin will
-# be used to make the connection.)
+# connect components with components
 y_splitter.connect(wg_long)
 
-# or any combination of the two:
+# combination of the two:
 y_splitter["pin3"].connect(wg_short)
 # y_splitter.connect(wg_short["pin1"])
 
-# when making multiple connections, it is often simpler to use `multiconnect`
-# multiconnect accepts components, pins, and None
-# if None is passed in, the corresponding pin is skipped
 y_recombiner.multiconnect(gc_output, wg_short, wg_long)
 
 simulator = SweepSimulator(1500e-9, 1600e-9)

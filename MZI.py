@@ -11,8 +11,8 @@ y_recombiner = siepic.YBranch()
 gc_output = siepic.GratingCoupler()
 
 
-# next we connect the components to each other
-# you can connect pins directly:
+# connect the components to each other
+# connect pins directly:
 y_splitter["pin1"].connect(gc_input["pin1"])
 
 # or connect components with components:
